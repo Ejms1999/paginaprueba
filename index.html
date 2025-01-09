@@ -3,152 +3,221 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servicios de Limpieza</title>
+    <title>Servicios de Limpieza Facial</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
         }
+
         header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 20px 10px;
+            background-color: #fce7f3;
+            padding: 2rem;
             text-align: center;
         }
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #333;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            display: inline-block;
-        }
-        nav a:hover {
-            background-color: #4CAF50;
-        }
-        .hero {
-            background: url('https://via.placeholder.com/1200x400') no-repeat center center/cover;
-            color: white;
-            height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-        .hero h1 {
-            font-size: 2.5rem;
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
-        }
-        .section {
-            padding: 20px;
-            text-align: center;
-        }
-        .section:nth-child(odd) {
-            background-color: #f4f4f4;
-        }
-        .section h2 {
+
+        h1 {
             color: #333;
+            margin-bottom: 1rem;
         }
+
         .services {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
+            padding: 3rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        .service {
-            background: white;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            padding: 20px;
-            border-radius: 10px;
-            width: 300px;
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
         }
-        .service img {
-            width: 100%;
-            border-radius: 10px;
+
+        .service-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
         }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px;
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .service-card ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .service-card li {
+            margin: 0.5rem 0;
+            padding-left: 1.5rem;
             position: relative;
         }
-        .contact-form input,
-        .contact-form textarea {
+
+        .service-card li::before {
+            content: "✓";
+            color: #f472b6;
+            position: absolute;
+            left: 0;
+        }
+
+        .benefits {
+            background-color: #fdf2f8;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .results {
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 2rem auto;
+        }
+
+        .result-card img {
             width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
         }
-        .contact-form button {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+
+        .contact {
+            background-color: #fce7f3;
+            padding: 3rem 1rem;
+            text-align: center;
         }
-        .contact-form button:hover {
-            background-color: #45a049;
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .services-grid, .benefits-grid, .results-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Servicios Profesionales de Limpieza</h1>
-        <p>¡Hacemos brillar tus espacios!</p>
+        <h1>Tratamientos Faciales Profesionales</h1>
+        <p>Cuida y rejuvenece tu piel con nuestros tratamientos especializados</p>
     </header>
-    <nav>
-        <a href="#services">Servicios</a>
-        <a href="#testimonials">Testimonios</a>
-        <a href="#contact">Contacto</a>
-    </nav>
-    <div class="hero">
-        <h1>Tu hogar limpio, tu mente tranquila</h1>
-    </div>
-    <section id="services" class="section">
-        <h2>Nuestros Servicios</h2>
-        <div class="services">
-            <div class="service">
-                <img src="https://via.placeholder.com/300" alt="Limpieza de hogares">
-                <h3>Limpieza de Hogares</h3>
-                <p>Mantenemos tu casa impecable para que disfrutes de un espacio saludable y confortable.</p>
+
+    <section class="services">
+        <h2>Nuestros Tratamientos</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Limpieza Facial Profunda</h3>
+                <p>Duración: 90 minutos</p>
+                <ul>
+                    <li>Análisis de piel</li>
+                    <li>Exfoliación profunda</li>
+                    <li>Extracción de impurezas</li>
+                    <li>Mascarilla hidratante</li>
+                </ul>
             </div>
-            <div class="service">
-                <img src="https://via.placeholder.com/300" alt="Limpieza de oficinas">
-                <h3>Limpieza de Oficinas</h3>
-                <p>Entornos laborales limpios que inspiran productividad y profesionalismo.</p>
+            <div class="service-card">
+                <h3>Tratamiento Anti-edad</h3>
+                <p>Duración: 60 minutos</p>
+                <ul>
+                    <li>Masaje facial</li>
+                    <li>Sérum anti-edad</li>
+                    <li>Máscarilla de colágeno</li>
+                    <li>Hidratación intensiva</li>
+                </ul>
             </div>
-            <div class="service">
-                <img src="https://via.placeholder.com/300" alt="Limpieza profunda">
-                <h3>Limpieza Profunda</h3>
-                <p>Eliminamos hasta la suciedad más persistente en todos los rincones de tu espacio.</p>
+            <div class="service-card">
+                <h3>Facial Express</h3>
+                <p>Duración: 30 minutos</p>
+                <ul>
+                    <li>Limpieza básica</li>
+                    <li>Tonificación</li>
+                    <li>Hidratación</li>
+                    <li>Protección solar</li>
+                </ul>
             </div>
         </div>
     </section>
-    <section id="testimonials" class="section">
-        <h2>Testimonios de Clientes</h2>
-        <p>"Contraté su servicio de limpieza para mi oficina, y estoy encantado con los resultados. ¡Excelente atención!" - <strong>Juan Pérez</strong></p>
-        <p>"Mi hogar nunca se había visto tan limpio. Los recomiendo al 100%." - <strong>María López</strong></p>
+
+    <section class="benefits">
+        <h2>Beneficios</h2>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <p>Piel más luminosa y saludable</p>
+            </div>
+            <div class="benefit-card">
+                <p>Reducción de impurezas y puntos negros</p>
+            </div>
+            <div class="benefit-card">
+                <p>Mejora la textura de la piel</p>
+            </div>
+            <div class="benefit-card">
+                <p>Estimula la producción de colágeno</p>
+            </div>
+        </div>
     </section>
-    <section id="contact" class="section">
-        <h2>Contáctanos</h2>
-        <p>¿Tienes preguntas o deseas contratar nuestros servicios? ¡Escríbenos!</p>
-        <form class="contact-form">
-            <input type="text" name="name" placeholder="Tu Nombre" required>
-            <input type="email" name="email" placeholder="Tu Correo" required>
-            <textarea name="message" rows="5" placeholder="Tu Mensaje" required></textarea>
-            <button type="submit">Enviar Mensaje</button>
-        </form>
+
+    <section class="results">
+        <h2>Resultados Reales</h2>
+        <div class="results-grid">
+            <div class="result-card">
+                <img src="/api/placeholder/600/400" alt="Antes del tratamiento">
+                <p>Antes</p>
+            </div>
+            <div class="result-card">
+                <img src="/api/placeholder/600/400" alt="Después del tratamiento">
+                <p>Después</p>
+            </div>
+        </div>
     </section>
-    <footer>
-        <p>&copy; 2025 Servicios de Limpieza. Todos los derechos reservados.</p>
-    </footer>
+
+    <section class="contact">
+        <h2>Agenda tu Cita</h2>
+        <div class="contact-info">
+            <div>
+                <p>📞 123-456-7890</p>
+            </div>
+            <div>
+                <p>✉️ citas@facialbeauty.com</p>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
