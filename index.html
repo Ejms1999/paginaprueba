@@ -198,7 +198,7 @@
     <nav>
         <ul>
             <li><a href="#inicio" class="active">Inicio</a></li>
-            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
             <li><a href="#resultados">Resultados</a></li>
             <li><a href="#contacto">Contacto</a></li>
         </ul>
@@ -291,19 +291,4 @@
         const sections = document.querySelectorAll("header, section");
 
         links.forEach(link => {
-            link.addEventListener("click", e => {
-                e.preventDefault();
-
-                // Cambiar sección activa
-                links.forEach(l => l.classList.remove("active"));
-                link.classList.add("active");
-
-                // Mostrar sección correspondiente
-                sections.forEach(section => section.classList.remove("active"));
-                const targetId = link.getAttribute("href").substring(1);
-                document.getElementById(targetId).classList.add("active");
-            });
-        });
-    </script>
-</body>
-</html>
+            link.addEvent
