@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beauty Facial</title>
+    <title>Beauty Facial - Servicios</title>
     <style>
         /* Estilos generales */
         * {
@@ -13,12 +13,17 @@
             font-family: Arial, sans-serif;
         }
 
+        body {
+            line-height: 1.6;
+            background-color: #fefefe;
+        }
+
         nav {
             background-color: #fce7f3;
             padding: 1rem;
             position: sticky;
             top: 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             z-index: 100;
         }
 
@@ -43,45 +48,50 @@
             color: white;
         }
 
-        header, section {
+        header {
+            padding: 3rem 2rem;
+            text-align: center;
+            background-color: #fce7f3;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        header p {
+            color: #555;
+            font-size: 1.2rem;
+        }
+
+        section {
             padding: 4rem 2rem;
             text-align: center;
         }
 
-        section {
-            display: none;
-        }
-
-        section.active {
-            display: block;
-        }
-
-        .services, .contact, .results {
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .services-grid, .results-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card, .result-card {
+        .service-card {
             border: 1px solid #ddd;
             border-radius: 8px;
             padding: 1.5rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
             background: white;
         }
 
-        .service-card:hover, .result-card:hover {
+        .service-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        .service-card h3, .result-card p {
+        .service-card h3 {
             color: #333;
             margin-bottom: 1rem;
         }
@@ -93,89 +103,27 @@
             margin-top: 1rem;
         }
 
-        .result-card img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 1rem;
+        ul {
+            text-align: left;
+            margin: 1rem 0;
+            padding-left: 1.5rem;
         }
 
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            align-items: center;
+        ul li {
+            margin-bottom: 0.5rem;
+            color: #555;
         }
 
-        .contact-card {
+        footer {
             background-color: #fce7f3;
-            padding: 2rem;
-            border-radius: 8px;
-            width: 100%;
-            max-width: 400px;
+            padding: 2rem 1rem;
             text-align: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-top: 2rem;
         }
 
-        .contact-card h3 {
-            color: #333;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .contact-info a {
-            text-decoration: none;
-            padding: 15px 30px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: bold;
-            margin-top: 1rem;
-            color: white;
-            width: 100%;
-            justify-content: center;
-        }
-
-        .whatsapp-btn {
-            background-color: #25D366;
-        }
-
-        .email-btn {
-            background-color: #4A90E2;
-        }
-
-        .contact-info a:hover {
-            transform: translateY(-3px);
-            opacity: 0.9;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-
-        .map {
-            margin-top: 3rem;
-            text-align: center;
-        }
-
-        .map h3 {
-            color: #333;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .map iframe {
-            width: 100%;
-            max-width: 600px;
-            height: 400px;
-            border-radius: 8px;
-            border: none;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .schedule {
-            color: #666;
-            line-height: 1.6;
+        footer p {
+            color: #555;
+            font-size: 1rem;
         }
 
         @media (max-width: 768px) {
@@ -187,133 +135,63 @@
             h2 {
                 font-size: 1.5rem;
             }
-
-            .map iframe {
-                height: 300px;
-            }
         }
     </style>
 </head>
 <body>
     <nav>
         <ul>
-            <li><a href="#inicio" class="active">Inicio</a></li>
-            <li><a href="servicios.html">Servicios</a></li>
-            <li><a href="#resultados">Resultados</a></li>
-            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="servicios.html" class="active">Servicios</a></li>
+            <li><a href="resultados.html">Resultados</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
         </ul>
     </nav>
 
-    <header id="inicio" class="active">
-        <h1>Beauty Facial</h1>
-        <p>Tu destino para una piel radiante y saludable</p>
+    <header>
+        <h1>Servicios de Limpieza Facial</h1>
+        <p>Explora nuestros tratamientos diseñados para revitalizar tu piel.</p>
     </header>
 
-    <section id="servicios">
+    <section>
         <h2>Nuestros Servicios</h2>
         <div class="services-grid">
             <div class="service-card">
-                <h3>Limpieza Facial Profunda</h3>
-                <p>Duración: 90 minutos</p>
-                <ul>
-                    <li>Análisis de piel</li>
-                    <li>Exfoliación profunda</li>
-                    <li>Extracción de impurezas</li>
-                    <li>Mascarilla hidratante</li>
-                </ul>
-                <p class="price">$80.000</p>
-            </div>
-            <div class="service-card">
-                <h3>Tratamiento Anti-edad</h3>
-                <p>Duración: 60 minutos</p>
-                <ul>
-                    <li>Masaje facial</li>
-                    <li>Sérum anti-edad</li>
-                    <li>Máscarilla de colágeno</li>
-                    <li>Hidratación intensiva</li>
-                </ul>
-                <p class="price">$100.000</p>
-            </div>
-            <div class="service-card">
-                <h3>Facial Express</h3>
+                <h3>Limpieza Facial Básica</h3>
                 <p>Duración: 30 minutos</p>
                 <ul>
-                    <li>Limpieza básica</li>
+                    <li>Remoción de impurezas</li>
                     <li>Tonificación</li>
-                    <li>Hidratación</li>
+                    <li>Hidratación básica</li>
+                </ul>
+                <p class="price">$10</p>
+            </div>
+            <div class="service-card">
+                <h3>Limpieza Facial Profunda</h3>
+                <p>Duración: 60 minutos</p>
+                <ul>
+                    <li>Exfoliación intensa</li>
+                    <li>Extracción de puntos negros</li>
+                    <li>Mascarilla hidratante</li>
+                </ul>
+                <p class="price">$15</p>
+            </div>
+            <div class="service-card">
+                <h3>Tratamiento Facial Completo</h3>
+                <p>Duración: 90 minutos</p>
+                <ul>
+                    <li>Evaluación personalizada</li>
+                    <li>Masajes rejuvenecedores</li>
+                    <li>Hidratación intensiva</li>
                     <li>Protección solar</li>
                 </ul>
-                <p class="price">$50.000</p>
+                <p class="price">$20</p>
             </div>
         </div>
     </section>
 
-    <section id="resultados">
-        <h2>Nuestros Resultados</h2>
-        <div class="results-grid">
-            <div class="result-card">
-                <img src="images/antes.jpg" alt="Antes del tratamiento">
-                <p>Antes</p>
-            </div>
-            <div class="result-card">
-                <img src="images/despues.jpg" alt="Después del tratamiento">
-                <p>Después</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="contacto">
-        <h2>Contáctanos</h2>
-        <div class="contact-info">
-            <div class="contact-card">
-                <h3>Información de Contacto</h3>
-                <a href="https://wa.me/123456789" target="_blank" class="whatsapp-btn">
-                    📞 WhatsApp
-                </a>
-                <a href="mailto:info@beautyfacial.com" class="email-btn">
-                    ✉️ Email
-                </a>
-            </div>
-            <p class="schedule">Horario de atención: Lunes a Viernes, 9:00 AM - 6:00 PM</p>
-        </div>
-        <div class="map">
-            <h3>Encuéntranos aquí</h3>
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3163.692398739648!2d-122.0842494847058!3d37.422065979823746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb5ba7c545f8d%3A0xc7c9c1038f14406a!2sGoogleplex!5e0!3m2!1sen!2sus!4v1635999878010!5m2!1sen!2sus" 
-                allowfullscreen="" 
-                loading="lazy">
-            </iframe>
-        </div>
-    </section>
-
-    <script>
-        const links = document.querySelectorAll("nav a");
-        const sections = document.querySelectorAll("header, section");
-
-        links.forEach(link => {
-            link.addEventListener("click", event => {
-                const targetId = link.getAttribute("href");
-
-                // Verificar si el enlace es interno (#)
-                if (targetId.startsWith("#")) {
-                    event.preventDefault();
-
-                    const targetSection = document.querySelector(targetId);
-                    if (targetSection) {
-                        // Desplazamiento suave
-                        targetSection.scrollIntoView({ behavior: "smooth" });
-
-                        // Actualizar clase activa en el menú
-                        links.forEach(a => a.classList.remove("active"));
-                        link.classList.add("active");
-
-                        // Cambiar la visibilidad de las secciones
-                        sections.forEach(section => section.classList.remove("active"));
-                        targetSection.classList.add("active");
-                    }
-                }
-            });
-        });
-    </script>
+    <footer>
+        <p>&copy; 2025 Beauty Facial. Todos los derechos reservados.</p>
+    </footer>
 </body>
 </html>
