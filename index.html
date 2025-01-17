@@ -291,4 +291,29 @@
         const sections = document.querySelectorAll("header, section");
 
         links.forEach(link => {
-            link.addEvent
+            link.addEventListener("click", event => {
+                const targetId = link.getAttribute("href");
+
+                // Verificar si el enlace es interno (#)
+                if (targetId.startsWith("#")) {
+                    event.preventDefault();
+
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        // Desplazamiento suave
+                        targetSection.scrollIntoView({ behavior: "smooth" });
+
+                        // Actualizar clase activa en el menú
+                        links.forEach(a => a.classList.remove("active"));
+                        link.classList.add("active");
+
+                        // Cambiar la visibilidad de las secciones
+                        sections.forEach(section => section.classList.remove("active"));
+                        targetSection.classList.add("active");
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
